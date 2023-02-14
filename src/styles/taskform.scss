@@ -4,10 +4,30 @@
     margin-top: 75px;
     height: 400px;
     z-index: 30;
+
+    @media (max-width: 750px) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
     
 
     .tasks-form {
         width: 30rem;
+        overflow-y: auto;
+        
+
+        @media (max-width: 750px) {
+          width: 350px;
+          margin-top: 300px;
+          margin-bottom: 100px;
+        }
+
+        @media (max-height: 750px ) {
+          margin-top: 0px;
+          margin-bottom: 30px;
+        }
 
         h2 {
             display: flex;
@@ -65,7 +85,29 @@
   
 }
 
+// scroll bar
+.tasks-form::-webkit-scrollbar {
+  width: 1.4vw;
+}
+.tasks-form::-webkit-scrollbar-thumb {
+  width: 1.4vw;
+  background-color: purple;
+}
+.tasks-form::-webkit-scrollbar-thumb:hover {
+  width: 1.4vw;
+  background-color: green;
+}
+.tasks-form::-webkit-scrollbar-track {
+  width: 1.4vw;
+  background-color: blue;
+}
+.tasks-form::-webkit-scrollbar-track:hover {
+  width: 1.4vw;
+  background-color: orange;
+}
+// end scroll bar
 
+// calendar mantine
   .mantine-Calendar-calendarHeaderLevel	{
     opacity: 100;
     color: white;
@@ -90,7 +132,10 @@
     background-color: black;
     color: white;
   }
+  // end calendar
 
+
+// background night sky
 .stars, .twinkling {
     position: absolute;
     top: 0;
@@ -112,3 +157,4 @@
     z-index: 20;
     animation: move-twink-back 200s linear infinite;
 }
+// end background
