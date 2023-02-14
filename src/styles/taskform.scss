@@ -1,0 +1,114 @@
+.task-form-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 75px;
+    height: 400px;
+    z-index: 30;
+    
+
+    .tasks-form {
+        width: 30rem;
+
+        h2 {
+            display: flex;
+            height: 50px;
+            margin-top: 35px;
+            justify-content: center;
+            color: white;
+        }
+
+        .input-section{
+            
+            
+            input {
+                margin-left: 20px;
+                margin-right: 50px;
+                height: 30px;
+                width: 45%;
+                color: black;
+
+            }
+
+        }
+
+        .tasks-list-container {
+            margin-top: 30px;
+            border-top: black 5px solid;
+        } 
+
+        
+
+        .chores {
+            margin-left: 20px;
+            margin-top: 5px;
+            color: white;
+
+        }
+
+        button {
+            font-size: x-small;
+            border-color: #3498db;
+            border-radius: 6px;
+            color: #fff;
+            box-shadow: 0 0 40px 40px #3498db inset, 0 0 0 0 #3498db;
+            transition: all 200ms ease-in-out;
+            
+            &:hover {
+              box-shadow: 0 0 10px 0 #3498db inset, 0 0 10px 4px #3498db;
+              cursor: pointer;
+            }
+          
+        }
+        
+    }
+
+  
+}
+
+
+  .mantine-Calendar-calendarHeaderLevel	{
+    opacity: 100;
+    color: white;
+  }
+  .mantine-Calendar-calendarHeaderLevel:hover	{
+    background-color: black;
+    color: white;
+  }
+
+  .mantine-Calendar-yearPickerControl	{
+    color: white;
+  }
+  .mantine-Calendar-yearPickerControl:hover	{
+    background-color: black;
+    color: white;
+  }
+  .mantine-Calendar-monthPickerControl	{
+    opacity: 100;
+    color: white;
+  }
+  .mantine-Calendar-monthPickerControl:hover	{
+    background-color: black;
+    color: white;
+  }
+
+.stars, .twinkling {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+    display: block;
+}
+
+.stars {
+    background: #000 url('../images/stars.png') repeat top center;
+    z-index: 10;
+}
+
+.twinkling{
+    background: transparent url('../images/twinkling.png') repeat top center;
+    z-index: 20;
+    animation: move-twink-back 200s linear infinite;
+}
