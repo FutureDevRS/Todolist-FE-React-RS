@@ -10,40 +10,7 @@ const Signup = ({setLoggedIn}) => {
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-
-  //   if (password !== confirmPassword) {
-  //     setError(true);
-  //     setErrorMessage("Error: The passwords must match");
-  //   } else {
-  //     fetch("http://127.0.0.1:5000/user/add", {
-  //       method: "POST",
-  //       headers: { "content-type": "application/json" },
-  //       body: JSON.stringify({
-  //         username: username,
-  //         password: password
-  //       }),
-  //     })
-  //       .then((res) => res.json())
-  //       .then((res) => {
-  //         if (res === "Error: The username is already registered.") {
-  //           setError(true);
-  //           setErrorMessage("Error: The username is already registered.");
-  //         } else {
-  //           setError(false);
-  //           setErrorMessage("");
-  //           setLoggedIn(true);
-  //           navigate("/");
-  //         }
-  //       })
-  //       .catch((error) => {
-  //         console.log("Error with creating an account", error);
-  //         setError(true);
-  //         setErrorMessage("Error setting up your account, please try again!");
-  //       });
-  //   }
-  // };
+ 
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -53,7 +20,7 @@ const Signup = ({setLoggedIn}) => {
       setErrorMessage("Error: The passwords must match");
     } else {
       axios
-        .post("http://127.0.0.1:5000/user/add", {
+        .post("https://git.heroku.com/todolistbers.git/user/add", {
           username,
           password,
         })

@@ -9,7 +9,7 @@ const Home = ({loggedIn, setLoggedIn, userId}) => {
 
 
 const setUserItems = (text) => {
-  axios.get("/tasks/getall", {
+  axios.get("https://git.heroku.com/todolistbers.git/tasks/getall", {
     text: text,
     user_id: userId
   })
