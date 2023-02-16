@@ -15,7 +15,7 @@ const Login = ({setLoggedIn, setUserId}) => {
       setError(true);
       setErrorMessage("Error: All fields must be completed");
     } else {
-      fetch("https://git.heroku.com/todolistbers.git/user/verify", {
+      fetch("https://todolistbers.herokuapp.com/user/verify", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({

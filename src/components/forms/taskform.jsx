@@ -21,7 +21,7 @@ const TaskForm = ({ userId, data }) => {
 
   const getUserItems = () => {
     axios
-      .get(`https://git.heroku.com/todolistbers.git/tasks/getall/${userId}`)
+      .get(`https://todolistbers.herokuapp.com/tasks/getall/${userId}`)
       .then((res) => {
         console.log("getting >>>>>", res.data);
         setUserItems(res.data);
@@ -37,7 +37,7 @@ const TaskForm = ({ userId, data }) => {
     
 
     axios
-      .post("https://git.heroku.com/todolistbers.git/tasks/add", {
+      .post("https://todolistbers.herokuapp.com/tasks/add", {
         text: task,
         user_id: userId,
       })
@@ -54,7 +54,7 @@ const TaskForm = ({ userId, data }) => {
     console.log(userItemId);
     try {
       const response = await axios.delete(
-        `https://git.heroku.com/todolistbers.git/tasks/delete/${userItemId}`
+        `https://todolistbers.herokuapp.com/tasks/delete/${userItemId}`
       );
       console.log("response", response);
       setUserItems(userItems.filter((task) => task.id !== userItemId));

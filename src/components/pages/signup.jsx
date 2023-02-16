@@ -20,7 +20,7 @@ const Signup = ({setLoggedIn}) => {
       setErrorMessage("Error: The passwords must match");
     } else {
       axios
-        .post("https://git.heroku.com/todolistbers.git/user/add", {
+        .post("https://todolistbers.herokuapp.com/user/add", {
           username,
           password,
         })
