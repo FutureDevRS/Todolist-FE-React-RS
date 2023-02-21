@@ -1,90 +1,91 @@
 .task-form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 75px;
+  height: auto;
+  width: auto;
+  z-index: 30;
+
+  @media (max-width: 750px) {
     display: flex;
-    justify-content: space-around;
-    margin-top: 75px;
-    height: 400px;
-    z-index: 30;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+  }
+
+  .tasks-form {
+    width: 30rem;
+    overflow-y: auto;
+    height: 100%;
+    width: 100%;
 
     @media (max-width: 750px) {
+      width: 350px;
+      margin-top: 300px;
+      margin-bottom: 100px;
+    }
+
+    @media (max-height: 750px) {
+      margin-top: 0px;
+      margin-bottom: 30px;
+    }
+
+    h2 {
       display: flex;
-      flex-direction: column;
+      height: 50px;
+      margin-top: 35px;
       justify-content: center;
-      align-items: center;
-    }
-    
+      color: white;
 
-    .tasks-form {
-        width: 30rem;
-        overflow-y: auto;
-        
-
-        @media (max-width: 750px) {
-          width: 350px;
-          margin-top: 300px;
-          margin-bottom: 100px;
-        }
-
-        @media (max-height: 750px ) {
-          margin-top: 0px;
-          margin-bottom: 30px;
-        }
-
-        h2 {
-            display: flex;
-            height: 50px;
-            margin-top: 35px;
-            justify-content: center;
-            color: white;
-        }
-
-        .input-section{
-            
-            
-            input {
-                margin-left: 20px;
-                margin-right: 50px;
-                height: 30px;
-                width: 45%;
-                color: black;
-
-            }
-
-        }
-
-        .tasks-list-container {
-            margin-top: 30px;
-            border-top: black 5px solid;
-        } 
-
-        
-
-        .chores {
-            margin-left: 20px;
-            margin-top: 5px;
-            color: white;
-
-        }
-
-        button {
-            font-size: x-small;
-            border-color: #3498db;
-            border-radius: 6px;
-            color: #fff;
-            box-shadow: 0 0 40px 40px #3498db inset, 0 0 0 0 #3498db;
-            transition: all 200ms ease-in-out;
-            
-            &:hover {
-              box-shadow: 0 0 10px 0 #3498db inset, 0 0 10px 4px #3498db;
-              cursor: pointer;
-            }
-          
-        }
-        
+      @media (max-height: 750px) {
+        margin-top: 130px;
+      }
     }
 
-  
+    .input-section {
+      input {
+        margin-left: 20px;
+        margin-right: 50px;
+        height: 30px;
+        width: 45%;
+        color: black;
+      }
+    }
+
+    .tasks-list-container {
+      margin-top: 30px;
+      border-top: black 5px solid;
+    }
+
+    .chores {
+      margin-left: 20px;
+      margin-top: 20px;
+      color: white;
+    }
+
+    button {
+      font-size: x-small;
+      border-color: #3498db;
+      border-radius: 6px;
+      color: #fff;
+      box-shadow: 0 0 40px 40px #3498db inset, 0 0 0 0 #3498db;
+      transition: all 200ms ease-in-out;
+
+      &:hover {
+        box-shadow: 0 0 10px 0 #3498db inset, 0 0 10px 4px #3498db;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .calendar-container {
+    margin-top: 30px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+  }
 }
-
 
 // scroll bar
 .tasks-form {
@@ -92,12 +93,12 @@
 }
 
 .tasks-form::-webkit-scrollbar {
-  width: .65vw;
+  width: 0.65vw;
   border-radius: 20px;
 }
 
 .tasks-form::-webkit-scrollbar-thumb {
-  width: .65vw;
+  width: 0.65vw;
   background-color: rgba(18, 18, 172, 0.439);
   border-radius: 20px;
   border: 5px;
@@ -106,69 +107,41 @@
 
 .tasks-form::-webkit-scrollbar-thumb:hover {
   background-color: rgba(18, 18, 172);
-  
 }
 
 .tasks-form::-webkit-scrollbar-track {
-  width: .65vw;
+  width: 0.65vw;
   background-color: rgba(52, 152, 219, 0.626);
   border-radius: 20px;
 }
-  
 
-  .tasks-form::-webkit-scrollbar-track:hover {
+.tasks-form::-webkit-scrollbar-track:hover {
   background-color: rgba(52, 152, 219);
 }
 // end scroll bar
 
 // calendar mantine
-  .mantine-Calendar-calendarHeaderLevel	{
-    opacity: 100;
-    color: white;
-  }
-  .mantine-Calendar-calendarHeaderLevel:hover	{
-    background-color: black;
-    color: white;
-  }
 
-  .mantine-Calendar-yearPickerControl	{
-    color: white;
-  }
-  .mantine-Calendar-yearPickerControl:hover	{
-    background-color: black;
-    color: white;
-  }
-  .mantine-Calendar-monthPickerControl	{
-    opacity: 100;
-    color: white;
-  }
-  .mantine-Calendar-monthPickerControl:hover	{
-    background-color: black;
-    color: white;
-  }
-  // end calendar
-
+// end calendar
 
 // background night sky
-.stars, .twinkling {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100vh;
-    display: block;
+.stars,
+.twinkling {
+  position: absolute;
+  margin: 0;
+  width: auto;
+  height: auto;
+  display: block;
 }
 
 .stars {
-    background: #000 url('../images/stars.png') repeat top center;
-    z-index: 10;
+  background: #000 url("../images/stars.png") repeat top center;
+  z-index: 10;
 }
 
-.twinkling{
-    background: transparent url('../images/twinkling.png') repeat top center;
-    z-index: 20;
-    animation: move-twink-back 200s linear infinite;
+.twinkling {
+  background: transparent url("../images/twinkling.png") repeat top center;
+  z-index: 20;
+  animation: move-twink-back 200s linear infinite;
 }
 // end background

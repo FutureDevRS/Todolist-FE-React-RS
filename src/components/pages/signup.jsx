@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const Signup = ({setLoggedIn}) => {
+const Signup = ({ setLoggedIn }) => {
   let navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -10,11 +10,9 @@ const Signup = ({setLoggedIn}) => {
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
- 
-
   const handleSubmit = (e) => {
     e.preventDefault();
-  
+
     if (password !== confirmPassword) {
       setError(true);
       setErrorMessage("Error: The passwords must match");
@@ -45,8 +43,8 @@ const Signup = ({setLoggedIn}) => {
 
   return (
     <div className="stars">
-    <div className="twinkling">
-    <div className="signup">
+      <div className="twinkling">
+        <div className="signup">
           <form className="signupBox" onSubmit={handleSubmit}>
             <input
               type="text"
@@ -87,9 +85,8 @@ const Signup = ({setLoggedIn}) => {
             {errorMessage}
           </h6>
         </div>
+      </div>
     </div>
-    </div>
-   
   );
 };
 

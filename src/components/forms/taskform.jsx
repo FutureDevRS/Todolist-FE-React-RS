@@ -1,22 +1,17 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-import { Calendar } from '@mantine/dates';
-import { Indicator } from '@mantine/core';
-
+import { Calendar } from "@mantine/dates";
+import { Indicator } from "@mantine/core";
 
 const TaskForm = ({ userId, data }) => {
   const [task, setTask] = useState("");
   const [userItems, setUserItems] = useState([]);
   const [value, setValue] = useState(null);
 
-  
-
-
   useEffect(() => {
-
     getUserItems();
-  // eslint-disable-next-line
+    // eslint-disable-next-line
   }, []);
 
   const getUserItems = () => {
@@ -30,11 +25,9 @@ const TaskForm = ({ userId, data }) => {
         console.log("error getting", error);
       });
   };
-  
 
   const handleAddTask = (e) => {
     e.preventDefault();
-    
 
     axios
       .post("https://todolistbers.herokuapp.com/tasks/add", {
@@ -44,6 +37,7 @@ const TaskForm = ({ userId, data }) => {
       .then(() => {
         console.log("task added succesfully!");
         getUserItems(data);
+        
       })
       .catch((error) => {
         console.log("Error with creating a new task, please try again", error);
@@ -63,73 +57,71 @@ const TaskForm = ({ userId, data }) => {
     }
   };
 
-  
-
   return (
     <>
-    <div className="stars">
-        <div className="twinkling">
-    <div className="task-form-container">
-      <div className="tasks-form">
-        <h2>Add your tasks here!</h2>
+      <div className="task-form-container">
+        <div className="stars">
+          <div className="twinkling">
+            <div className="tasks-form">
+              <h2>Add your tasks here!</h2>
 
-        <div className="input-section">
-          <input
-            type="text"
-            className="task-input"
-            placeholder="Insert task here"
-            value={task}
-            onChange={(e) =>
-              setTask(e.target.value)
-            }
-          />
-          <button
-            type="submit"
-            className="submit-task-btn"
-            onClick={handleAddTask}
-          >
-            Add Task
-          </button>
-
-          
-        </div>
-        <div className="chores">
-          {" "}
-          {userItems.map((userItem) => {
-            return (
-              <div key={userItem.id}>
-                <div className="task">{userItem.text}</div>
-                <button className="delete-task" onClick={() => handleDeleteTask(userItem.id)}>
-                  DELETE
+              <div className="input-section">
+                <input
+                  type="text"
+                  className="task-input"
+                  placeholder="Insert task here"
+                  value={task}
+                  onChange={(e) => setTask(e.target.value)}
+                />
+                <button
+                  type="submit"
+                  className="submit-task-btn"
+                  onClick={handleAddTask}
+                >
+                  Add Task
                 </button>
               </div>
-            );
-          })}
+              <div className="chores">
+                {" "}
+                {userItems.map((userItem) => {
+                  return (
+                    <div key={userItem.id}>
+                      <div className="task">{userItem.text}</div>
+                      <button
+                        className="delete-task"
+                        onClick={() => handleDeleteTask(userItem.id)}
+                      >
+                        DELETE
+                      </button>
+                    </div>
+                  );
+                })}
+              </div>
+              <div className="calendar-container">
+                <Calendar
+                  value={value}
+                  onChange={setValue}
+                  amountOfMonths={1}
+                  renderDay={(date) => {
+                    const day = date.getDate();
+                    const currentDate = new Date();
+                    return (
+                      <Indicator
+                        size={6}
+                        color="purple"
+                        offset={8}
+                        disabled={day !== currentDate.getDate()}
+                      >
+                        <div>{day}</div>
+                      </Indicator>
+                    );
+                  }}
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div className="calendar-container">
-      <Calendar  
-          value={value}
-          onChange={setValue}
-          amountOfMonths={1}
-          
-          
-          renderDay={(date) => {
-            const day = date.getDate();
-            const currentDate = new Date();
-            return (
-              <Indicator size={6} color="blue" offset={8} disabled={day !== currentDate.getDate()}>
-                <div>{day}</div>
-              </Indicator>
-            );
-          }}
-        />
-        </div>
-  </div>
-  </div>
-</div>
-
-   
     </>
   );
 };

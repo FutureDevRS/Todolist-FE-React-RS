@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-const Login = ({setLoggedIn, setUserId}) => {
+const Login = ({ setLoggedIn, setUserId }) => {
   let navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -29,8 +29,8 @@ const Login = ({setLoggedIn, setUserId}) => {
             setError(true);
             setErrorMessage("Error: Account could not be verified");
           } else {
-            console.log("login response", res.id)
-            setUserId(res.id)
+            console.log("login response", res.id);
+            setUserId(res.id);
             setError(false);
             setErrorMessage("");
             setLoggedIn(true);
@@ -52,47 +52,46 @@ const Login = ({setLoggedIn, setUserId}) => {
 
   return (
     <div className="stars">
-    <div className="twinkling">
-    <div className="login">
-      <div className="loginWrapper">
-          
-          <form className="loginBox" onSubmit={(e) => handleSubmit(e)}>
-            <div className="input-submit-container">
-            <input
-              type="text"
-              placeholder="Username"
-              className="loginInput"
-              value={username}
-              name="username"
-              onChange={(e) => setUsername(e.target.value)}
-            />
-            <input
-              type="password"
-              placeholder="Password"
-              className="loginInputPassword"
-              value={password}
-              name="password"
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <button type="submit" className="loginButton">
-              Log In
-            </button>
-            </div>
-            
-            <Link className="loginLink" to="/signup">
-              Sign Up Here.
-            </Link>
-          </form>
+      <div className="twinkling">
+        <div className="login">
+          <div className="loginWrapper">
+            <form className="loginBox" onSubmit={(e) => handleSubmit(e)}>
+              <div className="input-submit-container">
+                <input
+                  type="text"
+                  placeholder="Username"
+                  className="loginInput"
+                  value={username}
+                  name="username"
+                  onChange={(e) => setUsername(e.target.value)}
+                />
+                <input
+                  type="password"
+                  placeholder="Password"
+                  className="loginInputPassword"
+                  value={password}
+                  name="password"
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+                <button type="submit" className="loginButton">
+                  Log In
+                </button>
+              </div>
 
-          <h3
-            className="errorMessage"
-            style={{ visibility: error ? "visible" : "hidden" }}
-          >
-            {errorMessage}
-          </h3>
+              <Link className="loginLink" to="/signup">
+                Sign Up Here.
+              </Link>
+            </form>
+
+            <h3
+              className="errorMessage"
+              style={{ visibility: error ? "visible" : "hidden" }}
+            >
+              {errorMessage}
+            </h3>
+          </div>
         </div>
-    </div>
-    </div>
+      </div>
     </div>
   );
 };
