@@ -8,11 +8,25 @@ const TaskForm = ({ userId, data }) => {
   const [task, setTask] = useState("");
   const [userItems, setUserItems] = useState([]);
   const [value, setValue] = useState(null);
+  const [user, setUser] = useState([])
 
   useEffect(() => {
     getUserItems();
+    getUserName();
     // eslint-disable-next-line
   }, []);
+
+  const getUserName = () => {
+    axios
+    .get(`https://todolistbers.herokuapp.com/user/get/${userId}`)
+    .then((res) => {
+      setUser(res.data);
+      console.log(res.data)
+    })
+    .catch((error) => {
+      console.log("No users", error);
+    });
+  };
 
   const getUserItems = () => {
     axios
@@ -37,7 +51,6 @@ const TaskForm = ({ userId, data }) => {
       .then(() => {
         console.log("task added succesfully!");
         getUserItems(data);
-        
       })
       .catch((error) => {
         console.log("Error with creating a new task, please try again", error);
@@ -59,11 +72,11 @@ const TaskForm = ({ userId, data }) => {
 
   return (
     <>
-      <div className="task-form-container">
-        <div className="stars">
-          <div className="twinkling">
+      <div className="stars">
+        <div className="twinkling">
+          <div className="task-form-container">
             <div className="tasks-form">
-              <h2>Add your tasks here!</h2>
+              <h2>{user.username}</h2>
 
               <div className="input-section">
                 <input
@@ -97,27 +110,27 @@ const TaskForm = ({ userId, data }) => {
                   );
                 })}
               </div>
-              <div className="calendar-container">
-                <Calendar
-                  value={value}
-                  onChange={setValue}
-                  amountOfMonths={1}
-                  renderDay={(date) => {
-                    const day = date.getDate();
-                    const currentDate = new Date();
-                    return (
-                      <Indicator
-                        size={6}
-                        color="purple"
-                        offset={8}
-                        disabled={day !== currentDate.getDate()}
-                      >
-                        <div>{day}</div>
-                      </Indicator>
-                    );
-                  }}
-                />
-              </div>
+            </div>
+            <div className="calendar-container">
+              <Calendar
+                value={value}
+                onChange={setValue}
+                amountOfMonths={1}
+                renderDay={(date) => {
+                  const day = date.getDate();
+                  const currentDate = new Date();
+                  return (
+                    <Indicator
+                      size={6}
+                      color="purple"
+                      offset={8}
+                      disabled={day !== currentDate.getDate()}
+                    >
+                      <div>{day}</div>
+                    </Indicator>
+                  );
+                }}
+              />
             </div>
           </div>
         </div>

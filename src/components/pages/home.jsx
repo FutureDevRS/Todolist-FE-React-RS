@@ -36,11 +36,10 @@ const Home = ({ loggedIn, setLoggedIn, userId }) => {
               <h1 className="title">To Do List</h1>
 
               <div className="content-container">
-                <h3 className="content-message">Create your own to do list.</h3>
 
                 <ul className="content-list">
                   <li>Tasks that need to be done at the office</li>
-                  <li>Help with finishing chores at the house</li>
+                  <li>Calendar referance</li>
                   <li>Create a list for errands to run</li>
                   <li>Add as many items as you want</li>
                   <li>Then remove them when completed</li>
